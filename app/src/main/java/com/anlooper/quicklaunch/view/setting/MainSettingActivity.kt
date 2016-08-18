@@ -1,4 +1,4 @@
-package com.anlooper.quicklaunch.view
+package com.anlooper.quicklaunch.view.setting
 
 import android.os.Bundle
 import android.preference.PreferenceManager
@@ -13,7 +13,7 @@ class MainSettingActivity : AppCompatPreferenceActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentFragment(android.R.id.content, ServicePreferenceFragment())
+        setContentFragment(android.R.id.content, MainSettingFragment())
         PreferenceManager.setDefaultValues(this@MainSettingActivity, R.xml.pref_main_setting, false)
         setupActionBar()
     }

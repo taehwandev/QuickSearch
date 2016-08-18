@@ -1,4 +1,4 @@
-package com.anlooper.quicklaunch.view
+package com.anlooper.quicklaunch.view.setting
 
 import android.os.Bundle
 import android.preference.PreferenceFragment
@@ -7,7 +7,7 @@ import com.anlooper.quicklaunch.R
 /**
  * Created by tae-hwan on 8/17/16.
  */
-class ServicePreferenceFragment : PreferenceFragment() {
+class MainSettingFragment : PreferenceFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
