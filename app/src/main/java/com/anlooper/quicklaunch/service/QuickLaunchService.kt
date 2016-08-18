@@ -12,4 +12,8 @@ import android.os.IBinder
 class QuickLaunchService : Service() {
 
     override fun onBind(p0: Intent?): IBinder? = null
+
+    override fun onCreate() {
+        super.onCreate()
+    }
 }
