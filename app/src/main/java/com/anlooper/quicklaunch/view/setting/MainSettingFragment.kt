@@ -9,6 +9,7 @@ import android.util.Log
 import com.anlooper.quicklaunch.R
 import com.anlooper.quicklaunch.broadcast.QuickLaunchBroadcastReceiver
 import com.anlooper.quicklaunch.constant.IntentConstant
+import com.anlooper.quicklaunch.constant.PreferenceConstant
 
 /**
  * Created by tae-hwan on 8/17/16.
@@ -18,7 +19,7 @@ class MainSettingFragment : PreferenceFragment() {
     private val quickLaunchBroadcastReceiver = QuickLaunchBroadcastReceiver()
 
     private val swLaunch by lazy {
-        findPreference("quick_launch_on_off") as SwitchPreference
+        findPreference(PreferenceConstant.KEY_PREF_QUICK_LAUNCH_SWITCH) as SwitchPreference
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,24 +30,15 @@ class MainSettingFragment : PreferenceFragment() {
             when (preference) {
                 swLaunch -> {
                     Log.d("TAG", "any : $any preference : $preference")
-                    quickLaunchStart(any as Boolean)
+                    startBroadcastReceiver(IntentConstant.ACTION_QUICK_LAUNCH_SERVICE_CHANGE_STATUS)
                 }
             }
             true
         }
 
         val intentFilter = IntentFilter()
-        intentFilter.addAction(IntentConstant.ACTION_QUICK_LAUNCH_START_SERVICE)
-        intentFilter.addAction(IntentConstant.ACTION_QUICK_LAUNCH_STOP_SERVICE)
+        intentFilter.addAction(IntentConstant.ACTION_QUICK_LAUNCH_SERVICE_CHANGE_STATUS)
         activity.registerReceiver(quickLaunchBroadcastReceiver, intentFilter)
-    }
-
-    private fun quickLaunchStart(any: Boolean) {
-        if (any) {
-            startBroadcastReceiver(IntentConstant.ACTION_QUICK_LAUNCH_START_SERVICE)
-        } else {
-            startBroadcastReceiver(IntentConstant.ACTION_QUICK_LAUNCH_STOP_SERVICE)
-        }
     }
 
     private fun startBroadcastReceiver(type: String) {
@@ -56,8 +48,6 @@ class MainSettingFragment : PreferenceFragment() {
 
     override fun onDestroy() {
         super.onDestroy()
-        quickLaunchBroadcastReceiver?.let {
-            activity.unregisterReceiver(it)
-        }
+        activity.unregisterReceiver(quickLaunchBroadcastReceiver)
     }
 }

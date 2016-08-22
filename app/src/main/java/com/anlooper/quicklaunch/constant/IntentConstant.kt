@@ -6,8 +6,5 @@ package com.anlooper.quicklaunch.constant
 object IntentConstant {
 
     @JvmStatic
-    val ACTION_QUICK_LAUNCH_START_SERVICE = "com.anlooper.receiver.action_quick_launch_start_service"
-
-    @JvmStatic
-    val ACTION_QUICK_LAUNCH_STOP_SERVICE = "com.anlooper.receiver.action_quick_launch_stop_service"
+    val ACTION_QUICK_LAUNCH_SERVICE_CHANGE_STATUS = "com.anlooper.receiver.ACTION_QUICK_LAUNCH_SERVICE_CHANGE_STATUS"
 }

@@ -1,6 +1,5 @@
 package com.anlooper.quicklaunch.view.window.presenter
 
-import android.content.Context
 import tech.thdev.base.presenter.BasePresenter
 import tech.thdev.base.presenter.BaseView
 
@@ -9,12 +8,11 @@ import tech.thdev.base.presenter.BaseView
  */
 interface WindowViewContract {
 
-    interface View: BaseView<Presenter> {
+    interface View : BaseView<Presenter> {
 
     }
 
-    interface Presenter: BasePresenter<View> {
+    interface Presenter : BasePresenter<View> {
 
-        fun setContext(context: Context?)
     }
 }

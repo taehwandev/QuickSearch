@@ -3,10 +3,14 @@ package com.anlooper.quicklaunch.broadcast
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import android.preference.PreferenceManager
 import android.util.Log
 import com.anlooper.quicklaunch.constant.IntentConstant
+import com.anlooper.quicklaunch.constant.PreferenceConstant
 import com.anlooper.quicklaunch.data.IntentData
 import com.anlooper.quicklaunch.service.QuickLaunchService
+import tech.thdev.base.util.startServiceClass
+import tech.thdev.base.util.stopServiceClass
 
 /**
  * Created by Tae-hwan on 8/18/16.
@@ -26,15 +30,10 @@ class QuickLaunchBroadcastReceiver : BroadcastReceiver() {
 
                 }
                 Intent.ACTION_BOOT_COMPLETED -> {
-
+                    changeLaunchService(p0)
                 }
-                IntentConstant.ACTION_QUICK_LAUNCH_START_SERVICE -> {
-                    Log.e("TAG", "startService")
-                    startService(p0)
-                }
-                IntentConstant.ACTION_QUICK_LAUNCH_STOP_SERVICE -> {
-                    Log.e("TAG", "stopService")
-                    stopService(p0)
+                IntentConstant.ACTION_QUICK_LAUNCH_SERVICE_CHANGE_STATUS -> {
+                    changeLaunchService(p0)
                 }
                 else -> {
 
@@ -43,17 +42,15 @@ class QuickLaunchBroadcastReceiver : BroadcastReceiver() {
         }
     }
 
-    private fun startService(context: Context?) {
+    private fun changeLaunchService(context: Context?) {
         context?.let {
-            val intent = Intent(context, QuickLaunchService::class.java)
-            it.startService(intent)
-        }
-    }
-
-    private fun stopService(context: Context?) {
-        context?.let {
-            val intent = Intent(context, QuickLaunchService::class.java)
-            it.stopService(intent)
+            if (PreferenceManager.getDefaultSharedPreferences(it).getBoolean(PreferenceConstant.KEY_PREF_QUICK_LAUNCH_SWITCH, false)) {
+                Log.i("TAG", "QuickLaunch start service")
+                it.startServiceClass(QuickLaunchService::class.java)
+            } else {
+                Log.i("TAG", "QuickLaunch stop service")
+                it.stopServiceClass(QuickLaunchService::class.java)
+            }
         }
     }
 }
