@@ -4,7 +4,7 @@
     <PreferenceCategory android:title="@string/pref_header_quick_launch_on_off">
         <SwitchPreference
             android:defaultValue="false"
-            android:key="example_switch"
+            android:key="quick_launch_on_off"
             android:summary="@string/pref_description_quick_launch_on_off"
             android:title="@string/pref_title_quick_launch_on_off" />
     </PreferenceCategory>
