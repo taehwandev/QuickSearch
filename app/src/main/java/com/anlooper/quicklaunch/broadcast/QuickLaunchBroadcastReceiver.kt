@@ -7,7 +7,6 @@ import android.preference.PreferenceManager
 import android.util.Log
 import com.anlooper.quicklaunch.constant.IntentConstant
 import com.anlooper.quicklaunch.constant.PreferenceConstant
-import com.anlooper.quicklaunch.data.IntentData
 import com.anlooper.quicklaunch.service.QuickLaunchService
 import tech.thdev.base.util.startServiceClass
 import tech.thdev.base.util.stopServiceClass
@@ -17,6 +16,12 @@ import tech.thdev.base.util.stopServiceClass
  */
 class QuickLaunchBroadcastReceiver : BroadcastReceiver() {
 
+    var sample: Sample? = null
+
+    fun invokeStuff(action: (Sample.() -> Unit)) {
+        this.sample?.test()
+    }
+
     override fun onReceive(p0: Context?, p1: Intent?) {
 
         p1?.let {
@@ -24,10 +29,12 @@ class QuickLaunchBroadcastReceiver : BroadcastReceiver() {
 
             when (it.action) {
                 Intent.ACTION_USER_PRESENT -> {
-                    IntentData.intent?.let { p0?.startActivity(it) }
+                    // hide icon view
+                    sample?.test()
                 }
                 Intent.ACTION_SCREEN_OFF -> {
-
+                    // show icon view
+                    sample?.test()
                 }
                 Intent.ACTION_BOOT_COMPLETED -> {
                     changeLaunchService(p0)
@@ -52,5 +59,9 @@ class QuickLaunchBroadcastReceiver : BroadcastReceiver() {
                 it.stopServiceClass(QuickLaunchService::class.java)
             }
         }
+    }
+
+    interface Sample {
+        fun test()
     }
 }
