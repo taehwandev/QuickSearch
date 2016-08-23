@@ -8,6 +8,7 @@ import com.anlooper.quicklaunch.broadcast.QuickLaunchBroadcastReceiver
 import com.anlooper.quicklaunch.view.window.WindowView
 import com.anlooper.quicklaunch.view.window.presenter.WindowViewPresenter
 import tech.thdev.base.util.registerReceiverAction
+import tech.thdev.base.util.startServiceClass
 
 /**
  * Created by tae-hwan on 8/17/16.
@@ -25,9 +26,12 @@ class QuickLaunchService : Service() {
     override fun onCreate() {
         super.onCreate()
 
+        startForeground()
+        startServiceClass(SampleService::class.java)
+
         Log.d("TAG", "onCreate")
 
-        quickLaunchBroadcastReceiver.sample = object : QuickLaunchBroadcastReceiver.Sample{
+        quickLaunchBroadcastReceiver.sample = object : QuickLaunchBroadcastReceiver.Sample {
             override fun test() {
                 Log.d("TAG", "abcc")
             }
@@ -45,4 +49,6 @@ class QuickLaunchService : Service() {
         unregisterReceiver(quickLaunchBroadcastReceiver)
         windowView?.onDestroy()
     }
+
+
 }

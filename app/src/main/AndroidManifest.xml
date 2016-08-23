@@ -27,6 +27,7 @@
         </receiver>
 
         <service android:name=".service.QuickLaunchService" />
+        <service android:name=".service.SampleService" android:exported="false" android:process=":sample" />
     </application>
 
 </manifest>
