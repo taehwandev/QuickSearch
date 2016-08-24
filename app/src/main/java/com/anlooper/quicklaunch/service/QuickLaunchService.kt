@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.IBinder
 import android.util.Log
 import com.anlooper.quicklaunch.broadcast.QuickLaunchBroadcastReceiver
+import com.anlooper.quicklaunch.service.listener.QuickLaunchBRListener
 import com.anlooper.quicklaunch.view.window.WindowView
 import com.anlooper.quicklaunch.view.window.presenter.WindowViewPresenter
 import tech.thdev.base.util.registerReceiverAction
@@ -31,9 +32,9 @@ class QuickLaunchService : Service() {
 
         Log.d("TAG", "onCreate")
 
-        quickLaunchBroadcastReceiver.sample = object : QuickLaunchBroadcastReceiver.Sample {
-            override fun test() {
-                Log.d("TAG", "abcc")
+        quickLaunchBroadcastReceiver.brListener = object : QuickLaunchBRListener {
+            override fun actionUpdate(action: String?) {
+                Log.e("TAG", "Listener action $action")
             }
         }
 

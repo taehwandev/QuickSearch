@@ -38,6 +38,20 @@ class WindowView(val context: Context) : WindowViewContract.View {
         }
     }
 
+    /**
+     * Show window view...
+     */
+    fun showWindowView() {
+
+    }
+
+    /**
+     * Hide window view
+     */
+    fun hideWindowView() {
+
+    }
+
     override fun onObtainingPermissionOverlayWindow() {
 //        val intent = Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + context.packageName))
 //        context.startActivity
