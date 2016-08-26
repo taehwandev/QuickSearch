@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.Intent
 import android.preference.PreferenceManager
 import android.util.Log
-import android.widget.Toast
 import com.anlooper.quicklaunch.constant.IntentConstant
 import com.anlooper.quicklaunch.constant.PreferenceConstant
 import com.anlooper.quicklaunch.service.QuickLaunchService
@@ -29,7 +28,6 @@ class QuickLaunchBroadcastReceiver : BroadcastReceiver() {
             when (it.action) {
                 Intent.ACTION_USER_PRESENT -> {
                     // User present ... event
-                    Toast.makeText(p0, "USER_PRESENT", Toast.LENGTH_SHORT).show()
                 }
                 Intent.ACTION_BOOT_COMPLETED -> {
                     changeLaunchService(p0)

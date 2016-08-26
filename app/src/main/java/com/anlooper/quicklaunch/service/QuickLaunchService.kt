@@ -4,6 +4,7 @@ import android.app.Service
 import android.content.Intent
 import android.os.IBinder
 import android.util.Log
+import android.widget.Toast
 import com.anlooper.quicklaunch.broadcast.QuickLaunchBroadcastReceiver
 import com.anlooper.quicklaunch.service.listener.QuickLaunchBRListener
 import com.anlooper.quicklaunch.view.window.WindowView
@@ -30,7 +31,7 @@ class QuickLaunchService : Service() {
         startForeground()
         startServiceClass(SampleService::class.java)
 
-        registerReceiverAction(quickLaunchBroadcastReceiver, listOf(Intent.ACTION_SCREEN_OFF, Intent.ACTION_USER_PRESENT))
+        registerReceiverAction(quickLaunchBroadcastReceiver, listOf(Intent.ACTION_SCREEN_OFF, Intent.ACTION_SCREEN_ON, Intent.ACTION_USER_PRESENT))
 
         val windowView = WindowView(this)
         WindowViewPresenter().attachView(windowView)
@@ -38,9 +39,14 @@ class QuickLaunchService : Service() {
         quickLaunchBroadcastReceiver.brListener = object : QuickLaunchBRListener {
             override fun actionUpdate(action: String?) {
                 action?.let {
+                    Toast.makeText(this@QuickLaunchService, it, Toast.LENGTH_SHORT).show()
+
                     when (it) {
                         Intent.ACTION_USER_PRESENT -> {
                             windowView.hideWindowView()
+                        }
+                        Intent.ACTION_SCREEN_ON -> {
+
                         }
                         Intent.ACTION_SCREEN_OFF -> {
                             windowView.showWindowView()
