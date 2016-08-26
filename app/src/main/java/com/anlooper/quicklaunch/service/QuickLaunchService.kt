@@ -30,18 +30,25 @@ class QuickLaunchService : Service() {
         startForeground()
         startServiceClass(SampleService::class.java)
 
-        Log.d("TAG", "onCreate")
-
-        quickLaunchBroadcastReceiver.brListener = object : QuickLaunchBRListener {
-            override fun actionUpdate(action: String?) {
-                Log.e("TAG", "Listener action $action")
-            }
-        }
-
         registerReceiverAction(quickLaunchBroadcastReceiver, listOf(Intent.ACTION_SCREEN_OFF, Intent.ACTION_USER_PRESENT))
 
         val windowView = WindowView(this)
         WindowViewPresenter().attachView(windowView)
+
+        quickLaunchBroadcastReceiver.brListener = object : QuickLaunchBRListener {
+            override fun actionUpdate(action: String?) {
+                action?.let {
+                    when (it) {
+                        Intent.ACTION_USER_PRESENT -> {
+                            windowView.hideWindowView()
+                        }
+                        Intent.ACTION_SCREEN_OFF -> {
+                            windowView.showWindowView()
+                        }
+                    }
+                }
+            }
+        }
     }
 
     override fun onDestroy() {

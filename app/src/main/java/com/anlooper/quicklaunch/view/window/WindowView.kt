@@ -15,7 +15,10 @@ class WindowView(val context: Context) : WindowViewContract.View {
 
     private var presenter: WindowViewContract.Presenter? = null
 
-    private val windowManager: WindowManager
+    private val windowManager by lazy {
+        context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
+    }
+
     private var windowViewLayoutParams: WindowManager.LayoutParams? = null
     private var windowView: View? = null
 
@@ -24,8 +27,6 @@ class WindowView(val context: Context) : WindowViewContract.View {
     }
 
     init {
-        windowManager = context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
-
         onCreateView()
     }
 
@@ -36,20 +37,21 @@ class WindowView(val context: Context) : WindowViewContract.View {
         windowView?.setOnTouchListener { view, motionEvent ->
             presenter?.onTouch(motionEvent) ?: true
         }
+        windowView?.visibility = View.GONE
     }
 
     /**
      * Show window view...
      */
     fun showWindowView() {
-
+        windowView?.visibility = View.VISIBLE
     }
 
     /**
      * Hide window view
      */
     fun hideWindowView() {
-
+        windowView?.visibility = View.GONE
     }
 
     override fun onObtainingPermissionOverlayWindow() {
