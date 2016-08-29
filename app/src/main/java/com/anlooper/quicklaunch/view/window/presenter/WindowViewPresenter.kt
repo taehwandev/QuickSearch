@@ -3,6 +3,7 @@ package com.anlooper.quicklaunch.view.window.presenter
 import android.content.Context
 import android.os.Build
 import android.provider.Settings
+import android.util.Log
 import android.view.MotionEvent
 import tech.thdev.base.presenter.AbstractPresenter
 
@@ -48,9 +49,14 @@ class WindowViewPresenter : AbstractPresenter<WindowViewContract.View>(), Window
         return true
     }
 
+    private fun startCount() {
+
+    }
+
     private fun actionDown(motionEvent: MotionEvent?) {
         touchPrevX = motionEvent?.rawX
         touchPrevY = motionEvent?.rawY
+        Log.i("TAG", "actionDown")
     }
 
     private fun actionMove(motionEvent: MotionEvent?) {
@@ -64,10 +70,12 @@ class WindowViewPresenter : AbstractPresenter<WindowViewContract.View>(), Window
         touchPrevY = rawY
 
         view?.updateViewLayout(x, y)
+        Log.i("TAG", "actionMove")
     }
 
     private fun actionUp(motionEvent: MotionEvent?) {
         // Do noting ...
+        Log.i("TAG", "actionUp")
     }
 
     override fun destroy() {

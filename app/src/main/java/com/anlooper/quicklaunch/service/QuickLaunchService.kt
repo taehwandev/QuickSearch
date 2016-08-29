@@ -46,10 +46,10 @@ class QuickLaunchService : Service() {
                             windowView.hideWindowView()
                         }
                         Intent.ACTION_SCREEN_ON -> {
-
+                            windowView.showWindowView()
                         }
                         Intent.ACTION_SCREEN_OFF -> {
-                            windowView.showWindowView()
+
                         }
                     }
                 }
