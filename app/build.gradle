@@ -2,15 +2,15 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
+    compileSdkVersion 24
+    buildToolsVersion '24.0.3'
 
     defaultConfig {
         applicationId "com.anlooper.quicklaunch"
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
+        minSdkVersion 16
+        targetSdkVersion 24
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
@@ -30,22 +30,22 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
-    androidTestCompile(rootProject.ext.espressoCore, {
+    androidTestCompile("com.android.support.test.espresso:espresso-core:$rootProject.ext.espressoLibVersion", {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    testCompile rootProject.ext.junit
+    testCompile "junit:junit:$rootProject.ext.junitLibVersion"
 
     compile project(":base")
 
     // Kotlin
-    compile rootProject.ext.kotlinStdlib
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$rootProject.ext.kotlin_version"
 
-    compile rootProject.ext.appCompatV7
-    compile rootProject.ext.supportV4
-    compile rootProject.ext.vectorDrawable
+    compile "com.android.support:appcompat-v7:$rootProject.ext.supportLibraryVersion"
+    compile "com.android.support:support-v4:$rootProject.ext.supportLibraryVersion"
+    compile "com.android.support:support-vector-drawable:$rootProject.ext.supportLibraryVersion"
 
     // RX
     // https://github.com/ReactiveX/RxAndroid
-    compile rootProject.ext.rxAndroid
-    compile rootProject.ext.rxJava
+    compile 'io.reactivex:rxandroid:1.2.1'
+    compile 'io.reactivex:rxjava:1.1.6'
 }

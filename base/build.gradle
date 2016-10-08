@@ -2,12 +2,12 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
+    compileSdkVersion 24
+    buildToolsVersion '24.0.2'
 
     defaultConfig {
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
+        minSdkVersion 16
+        targetSdkVersion 24
         versionCode 1
         versionName "1.0"
 
@@ -24,12 +24,13 @@ android {
 
 dependencies {
     provided fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile(rootProject.ext.espressoCore, {
+    androidTestCompile("com.android.support.test.espresso:espresso-core:$rootProject.ext.espressoLibVersion", {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    provided rootProject.ext.appCompatV7
-    testCompile rootProject.ext.junit
+    testCompile "junit:junit:$rootProject.ext.junitLibVersion"
+
+    compile "com.android.support:appcompat-v7:$rootProject.ext.supportLibraryVersion"
 
     // Kotlin
-    provided rootProject.ext.kotlinStdlib
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$rootProject.ext.kotlin_version"
 }
