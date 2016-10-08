@@ -37,8 +37,6 @@ dependencies {
 
     compile project(":base")
 
-    // Test
-
     // Kotlin
     compile "org.jetbrains.kotlin:kotlin-stdlib:$rootProject.ext.kotlin_version"
 
