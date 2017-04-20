@@ -34,6 +34,7 @@ class QuickLaunchService : Service() {
         registerReceiverAction(quickLaunchBroadcastReceiver, listOf(Intent.ACTION_SCREEN_OFF, Intent.ACTION_SCREEN_ON, Intent.ACTION_USER_PRESENT))
 
         val windowView = WindowView(this)
+        windowView.showWindowView()
         WindowViewPresenter().attachView(windowView)
 
         quickLaunchBroadcastReceiver.brListener = object : QuickLaunchBRListener {
@@ -43,10 +44,10 @@ class QuickLaunchService : Service() {
 
                     when (it) {
                         Intent.ACTION_USER_PRESENT -> {
-                            windowView.hideWindowView()
+//                            windowView.hideWindowView()
                         }
                         Intent.ACTION_SCREEN_ON -> {
-                            windowView.showWindowView()
+//                            windowView.showWindowView()
                         }
                         Intent.ACTION_SCREEN_OFF -> {
 

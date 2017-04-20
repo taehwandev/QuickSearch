@@ -8,18 +8,20 @@ import android.view.WindowManager
 /**
  * Created by tae-hwan on 8/22/16.
  */
-fun WindowManager.addWindowView(view: View?, xpos: Int, ypos: Int, alpah: Float = 1f): WindowManager.LayoutParams? {
+fun WindowManager.addWindowView(view: View?, xPosition: Int, yPosition: Int, alpha: Float = 1f): WindowManager.LayoutParams? {
     this.let {
         val layoutParams = WindowManager.LayoutParams()
         layoutParams.width = WindowManager.LayoutParams.WRAP_CONTENT
         layoutParams.height = WindowManager.LayoutParams.WRAP_CONTENT
-        layoutParams.x = xpos
-        layoutParams.y = ypos
-        layoutParams.alpha = alpah
+        layoutParams.x = xPosition
+        layoutParams.y = yPosition
+        layoutParams.alpha = alpha
         layoutParams.type = WindowManager.LayoutParams.TYPE_SYSTEM_ERROR
         layoutParams.flags =
-                WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN or
-                        WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
+                WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or
+                        WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL or
+                WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED or
+                WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH
         layoutParams.format = PixelFormat.TRANSLUCENT
         layoutParams.gravity = Gravity.TOP or Gravity.LEFT
 
