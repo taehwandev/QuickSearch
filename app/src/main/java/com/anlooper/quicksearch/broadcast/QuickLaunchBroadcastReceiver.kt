@@ -1,14 +1,14 @@
-package com.anlooper.quicklaunch.broadcast
+package com.anlooper.quicksearch.broadcast
 
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.preference.PreferenceManager
 import android.util.Log
-import com.anlooper.quicklaunch.constant.IntentConstant
-import com.anlooper.quicklaunch.constant.PreferenceConstant
-import com.anlooper.quicklaunch.service.QuickLaunchService
-import com.anlooper.quicklaunch.service.listener.QuickLaunchBRListener
+import com.anlooper.quicksearch.constant.IntentConstant
+import com.anlooper.quicksearch.constant.PreferenceConstant
+import com.anlooper.quicksearch.service.QuickLaunchService
+import com.anlooper.quicksearch.service.listener.QuickLaunchBRListener
 import tech.thdev.base.util.startServiceClass
 import tech.thdev.base.util.stopServiceClass
 

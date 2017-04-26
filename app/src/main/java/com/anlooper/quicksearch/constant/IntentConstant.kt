@@ -1,4 +1,4 @@
-package com.anlooper.quicklaunch.constant
+package com.anlooper.quicksearch.constant
 
 /**
  * Created by Tae-hwan on 8/22/16.

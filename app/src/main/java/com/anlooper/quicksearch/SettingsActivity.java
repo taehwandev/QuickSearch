@@ -1,4 +1,4 @@
-package com.anlooper.quicklaunch;
+package com.anlooper.quicksearch;
 
 
 import android.annotation.TargetApi;

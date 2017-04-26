@@ -1,4 +1,4 @@
-package com.anlooper.quicklaunch.data
+package com.anlooper.quicksearch.data
 
 import android.content.Intent
 

@@ -1,14 +1,14 @@
-package com.anlooper.quicklaunch.service
+package com.anlooper.quicksearch.service
 
 import android.app.Service
 import android.content.Intent
 import android.os.IBinder
 import android.util.Log
 import android.widget.Toast
-import com.anlooper.quicklaunch.broadcast.QuickLaunchBroadcastReceiver
-import com.anlooper.quicklaunch.service.listener.QuickLaunchBRListener
-import com.anlooper.quicklaunch.view.window.WindowView
-import com.anlooper.quicklaunch.view.window.presenter.WindowViewPresenter
+import com.anlooper.quicksearch.broadcast.QuickLaunchBroadcastReceiver
+import com.anlooper.quicksearch.service.listener.QuickLaunchBRListener
+import com.anlooper.quicksearch.view.window.WindowView
+import com.anlooper.quicksearch.view.window.presenter.WindowViewPresenter
 import tech.thdev.base.util.registerReceiverAction
 import tech.thdev.base.util.startServiceClass
 

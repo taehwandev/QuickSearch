@@ -1,4 +1,4 @@
-package com.anlooper.quicklaunch.service
+package com.anlooper.quicksearch.service
 
 import android.app.Notification
 import android.app.Service
@@ -8,7 +8,7 @@ import android.os.Build
 import android.os.IBinder
 import android.support.v7.app.NotificationCompat
 import android.util.Log
-import com.anlooper.quicklaunch.R
+import com.anlooper.quicksearch.R
 
 /**
  * Created by Tae-hwan on 8/23/16.

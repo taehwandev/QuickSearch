@@ -3,19 +3,19 @@
     <!-- These settings headers are only used on tablets. -->
 
     <header
-        android:fragment="com.anlooper.quicklaunch.SettingsActivity$GeneralPreferenceFragment"
+        android:fragment="com.anlooper.quicksearch.SettingsActivity$GeneralPreferenceFragment"
         android:icon="@drawable/ic_info_black_24dp"
         android:title="@string/pref_header_general">
         <extra android:name="someKey" android:value="someHeaderValue" />
         </header>
 
     <header
-        android:fragment="com.anlooper.quicklaunch.SettingsActivity$NotificationPreferenceFragment"
+        android:fragment="com.anlooper.quicksearch.SettingsActivity$NotificationPreferenceFragment"
         android:icon="@drawable/ic_notifications_black_24dp"
         android:title="@string/pref_header_notifications" />
 
     <header
-        android:fragment="com.anlooper.quicklaunch.SettingsActivity$DataSyncPreferenceFragment"
+        android:fragment="com.anlooper.quicksearch.SettingsActivity$DataSyncPreferenceFragment"
         android:icon="@drawable/ic_sync_black_24dp"
         android:title="@string/pref_header_data_sync" />
 

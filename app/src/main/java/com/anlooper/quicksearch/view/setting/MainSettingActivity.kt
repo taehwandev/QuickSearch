@@ -1,9 +1,9 @@
-package com.anlooper.quicklaunch.view.setting
+package com.anlooper.quicksearch.view.setting
 
 import android.os.Bundle
 import android.preference.PreferenceManager
-import com.anlooper.quicklaunch.AppCompatPreferenceActivity
-import com.anlooper.quicklaunch.R
+import com.anlooper.quicksearch.AppCompatPreferenceActivity
+import com.anlooper.quicksearch.R
 import tech.thdev.base.util.setContentFragment
 
 /**

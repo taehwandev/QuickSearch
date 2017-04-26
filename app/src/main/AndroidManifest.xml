@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.anlooper.quicklaunch">
+    package="com.anlooper.quicksearch">
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".view.setting.MainSettingActivity"
+            android:name="com.anlooper.quicksearch.view.setting.MainSettingActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,14 +21,14 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name=".broadcast.QuickLaunchBroadcastReceiver">
+        <receiver android:name="com.anlooper.quicksearch.broadcast.QuickLaunchBroadcastReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
 
-        <service android:name=".service.QuickLaunchService" />
-        <service android:name=".service.SampleService" android:exported="false" android:process=":sample" />
+        <service android:name="com.anlooper.quicksearch.service.QuickLaunchService" />
+        <service android:name="com.anlooper.quicksearch.service.SampleService" android:exported="false" android:process=":sample" />
     </application>
 
 </manifest>

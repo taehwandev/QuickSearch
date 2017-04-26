@@ -1,4 +1,4 @@
-package com.anlooper.quicklaunch.view.setting
+package com.anlooper.quicksearch.view.setting
 
 import android.content.Intent
 import android.net.Uri
@@ -8,10 +8,10 @@ import android.preference.PreferenceFragment
 import android.preference.SwitchPreference
 import android.provider.Settings
 import android.util.Log
-import com.anlooper.quicklaunch.R
-import com.anlooper.quicklaunch.broadcast.QuickLaunchBroadcastReceiver
-import com.anlooper.quicklaunch.constant.IntentConstant
-import com.anlooper.quicklaunch.constant.PreferenceConstant
+import com.anlooper.quicksearch.R
+import com.anlooper.quicksearch.broadcast.QuickLaunchBroadcastReceiver
+import com.anlooper.quicksearch.constant.IntentConstant
+import com.anlooper.quicksearch.constant.PreferenceConstant
 import tech.thdev.base.util.registerReceiverAction
 
 /**

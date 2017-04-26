@@ -1,4 +1,4 @@
-package com.anlooper.quicklaunch.view.window.presenter
+package com.anlooper.quicksearch.view.window.presenter
 
 import android.content.Context
 import android.os.Build

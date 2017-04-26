@@ -1,12 +1,12 @@
-package com.anlooper.quicklaunch.view.window
+package com.anlooper.quicksearch.view.window
 
 import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
-import com.anlooper.quicklaunch.R
-import com.anlooper.quicklaunch.view.window.presenter.WindowViewContract
+import com.anlooper.quicksearch.R
+import com.anlooper.quicksearch.view.window.presenter.WindowViewContract
 import tech.thdev.base.util.addWindowView
 
 /**
